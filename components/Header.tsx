@@ -23,20 +23,32 @@ function Header({}: Props) {
         }}
         className="flex items-center justify-between"
       >
-        <Image
-          src="/../public/assets/logo.png"
+        {/*Social Icons */}
+        {/* <Image
+          className="pt-5"
+          src="/../public/assets/new.png"
           alt="/"
-          width="150"
-          height="150"
+          width="100"
+          height="100"
+        /> */}
+        <SocialIcon
+          url="https://www.youtube.com/sonnysangha"
+          fgColor="#1f7b70"
+          bgColor="transparent"
         />
         <SocialIcon
           url="https://www.instagram.com/vaanoz/"
-          fgColor="#190933"
+          fgColor="#1f7b70"
           bgColor="transparent"
         />
         <SocialIcon
           url="https://www.linkedin.com/in/vanathi-rajasekar/"
-          fgColor="#190933"
+          fgColor="#1f7b70"
+          bgColor="transparent"
+        />
+        <SocialIcon
+          url="https://github.com/RVanathi"
+          fgColor="#1f7b70"
           bgColor="transparent"
         />
       </motion.div>
@@ -52,16 +64,10 @@ function Header({}: Props) {
         }}
         className="flex flex-row items-center p-6"
       >
-        {/*Social Icons */}
-        <SocialIcon
-          url="https://www.youtube.com/sonnysangha"
-          fgColor="#190933"
-          bgColor="transparent"
-        />
         <SocialIcon
           className="cursor-pointer"
           network="email"
-          fgColor="#190933"
+          fgColor="#1f7b70"
           bgColor="transparent"
         />
         <p className="uppercase hidden md:inline-flex text-sm text-[#190933]-400">
