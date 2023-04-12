@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 type Props = {};
 
@@ -14,7 +15,7 @@ const About = (props: Props) => {
       <h3 className="absolute top-24 uppercase tracking-[20px] text-[#1f7b70] text-2xl">
         About
       </h3>
-      <motion.img
+      <motion.div
         initial={{
           x: -200,
           opacity: 0,
@@ -24,9 +25,16 @@ const About = (props: Props) => {
         }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        src="/assets/bitmoji.jpg"
-        className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
-      />
+      >
+        <Image
+          className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
+          alt=""
+          src="/../public/assets/bitmoji.jpg"
+          height="200"
+          width="150"
+        />
+      </motion.div>
+
       <div className="space-y-10 px-0 md:px-10">
         <h4 className="text-4xl">
           Here is a{" "}

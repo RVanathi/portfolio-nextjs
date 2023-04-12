@@ -5,6 +5,7 @@ import Head from "next/head";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import WorkExperience from "@/components/WorkExperience";
+import Skills from "@/components/Skills";
 // import { Inter } from "next/font/google";
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -25,11 +26,14 @@ const Home: NextPage = () => {
       <section id="about" className="snap-center">
         <About />
       </section>
+      {/* Experience*/}
       <section id="experience" className="snap-center">
         <WorkExperience />
       </section>
-      {/* Experience*/}
       {/* Skills*/}
+      <section id="skills" className="snap-start">
+        <Skills />
+      </section>
       {/* Projects*/}
       {/* Contact Me*/}
     </div>
