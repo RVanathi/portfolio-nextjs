@@ -4,6 +4,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import WorkExperience from "@/components/WorkExperience";
 // import { Inter } from "next/font/google";
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -24,7 +25,7 @@ const Home: NextPage = () => {
       <section id="about" className="snap-center">
         <About />
       </section>
-      <section id="experience" className="">
+      <section id="experience">
         <WorkExperience />
       </section>
       {/* Experience*/}
