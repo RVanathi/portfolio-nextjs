@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import AboutImage from "../public/assets/bitmoji.jpg";
 
 type Props = {};
 
@@ -25,14 +26,9 @@ const About = (props: Props) => {
         }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
+        className="relative -mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[400px] xl:h-[500px]"
       >
-        <Image
-          className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
-          alt=""
-          src="/../public/assets/bitmoji.jpg"
-          height="200"
-          width="150"
-        />
+        <Image className="rounded-full " alt="" src={AboutImage} />
       </motion.div>
 
       <div className="space-y-10 px-0 md:px-10">
@@ -51,11 +47,7 @@ const About = (props: Props) => {
           voluptate rerum itaque! Lorem ipsum dolor sit amet consectetur
           adipisicing elit. Eveniet veniam ut vero quisquam architecto, quidem
           similique soluta porro, corrupti eius reprehenderit deleniti velit
-          dicta veritatis consequatur laborum? Magni, odio consequatur! Lorem
-          ipsum dolor sit amet, consectetur adipisicing elit. Expedita
-          reiciendis beatae qui consequatur veniam aliquid, quasi harum facere
-          voluptatem possimus, quae, vel provident repudiandae esse magnam
-          ratione aut assumenda hic.
+          dicta veritatis consequatur laborum? Magni, odio consequatur!
         </p>
       </div>
     </motion.div>

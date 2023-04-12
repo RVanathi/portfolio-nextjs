@@ -45,7 +45,8 @@ function ExperienceCard({}: Props) {
           Started work... - Ended...
         </p>
 
-        <ul className="list-disc space-y-4 ml-5 text-lg overflow-y-scroll h-[250px]">
+        <ul className="list-disc space-y-4 ml-5 text-lg ">
+          {/* h-[300px] overflow-y-scroll scrollbar scrollbar-track-[#053642] scrollbar-thumb-[#A1C181]/80 */}
           <li>
             Summary points. Lorem ipsum dolor sit amet consectetur adipisicing
             elit.
