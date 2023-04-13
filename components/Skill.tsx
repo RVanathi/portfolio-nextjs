@@ -18,7 +18,7 @@ function Skill({ directionLeft }: Props) {
         whileInView={{ opacity: 1, x: 0 }}
       >
         <Image
-          className="rounded-full border border-[#1f7b70] object-cover w-24 h-24 xl:w-32 xl:h-32 filter group-hover:grayscale transition duration-300 ease-in-out"
+          className="rounded-full border border-[#1f7b70] object-cover w-24 h-24 md:w-28 md:h-28 xl:w-32 xl:h-32 filter group-hover:grayscale transition duration-300 ease-in-out"
           src="/../public/assets/react.png"
           alt=""
           height="150"
