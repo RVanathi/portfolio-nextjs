@@ -16,7 +16,7 @@ function Projects({}: Props) {
       <h3 className="absolute top-24 uppercase tracking-[20px] text-[#1f7b70] text-2xl">
         Projects
       </h3>
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20">
+      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-[#053642] scrollbar-thumb-[#A1C181]/80">
         {projects.map((project, i) => {
           return (
             <div
