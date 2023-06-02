@@ -1,19 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import AboutImage from "../public/assets/coffee.jpg";
+import AboutImage from "../public/assets/abt.jpg";
 
 type Props = {};
 
 const About = (props: Props) => {
   return (
     <motion.div
-      className="flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-4xl px-10 justify-evenly mx-auto items-center"
+      className="my-4 flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-4xl px-10 justify-evenly mx-auto items-center"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-[#1f7b70] text-2xl">
+      <h3 className="mb-4 absolute top-24 uppercase tracking-[20px] text-[#1f7b70] text-2xl">
         About
       </h3>
       <motion.div
@@ -29,13 +29,13 @@ const About = (props: Props) => {
         className=""
       >
         <Image
-          className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-fit md:rounded-lg md:w-[450px] md:h-[280px] xl:w-[600px] xl:h-[350px]"
+          className="mt-16 -mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-fit md:rounded-lg md:w-[450px] md:h-[280px] xl:w-[600px] xl:h-[350px]"
           alt=""
           src={AboutImage}
         />
       </motion.div>
 
-      <div className="space-y-10 px-0 md:px-10 w-fit">
+      <div className="mt-10 space-y-10 px-0 md:px-10 w-fit">
         <h4 className="text-3xl">
           Here is a{" "}
           <span className="underline decoration-[#A1C181]/50">little</span>{" "}
@@ -51,7 +51,10 @@ const About = (props: Props) => {
           eligendi ad sit nemo! Lorem ipsum dolor sit amet consectetur
           adipisicing elit. Sapiente quae dignissimos, modi asperiores provident
           repellat debitis accusantium animi natus quidem molestias, quo totam
-          similique facilis assumenda cum sed corrupti quam.
+          similique facilis assumenda cum sed corrupti quam.{" "}
+          <span className="underline cursor-pointer">
+            Check out some of my latest projects.
+          </span>
         </p>
       </div>
     </motion.div>

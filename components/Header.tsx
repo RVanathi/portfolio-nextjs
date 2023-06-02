@@ -32,11 +32,6 @@ function Header({}: Props) {
           width="100"
           height="100"
         /> */}
-        {/* <SocialIcon
-          url="https://www.youtube.com/sonnysangha"
-          fgColor="#1f7b70"
-          bgColor="transparent"
-        /> */}
         <SocialIcon
           url="https://www.instagram.com/vaanoz/"
           fgColor="#1f7b70"
@@ -53,7 +48,7 @@ function Header({}: Props) {
           bgColor="transparent"
         />
       </motion.div>
-      <Link href="#contact" legacyBehavior>
+      <Link href="/#contact" legacyBehavior>
         <motion.div
           initial={{ x: 500, opacity: 0, scale: 0.5 }}
           animate={{

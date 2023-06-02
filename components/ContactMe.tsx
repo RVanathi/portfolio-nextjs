@@ -1,4 +1,5 @@
 import React from "react";
+import { SocialIcon } from "react-social-icons";
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { useForm, SubmitHandler } from "react-hook-form";
 type Inputs = {
@@ -20,19 +21,37 @@ function ContactMe({}: Props) {
       <h3 className="absolute top-24 uppercase tracking-[20px] text-[#1f7b70] text-2xl">
         Contact
       </h3>
+      <h3 className="absolute top-36 uppercase tracking-[3px] text-[#1f7b70] text-sm">
+        Get in Touch
+      </h3>
       <div className="flex flex-col space-y-10">
-        <h4 className="text-4xl font-semibold text-center">
-          I have got just what you need.{" "}
-          <span className="decoration-[#A1C181]/50 underline">{`Let's Talk`}</span>
+        <h4 className="text-3xl font-semibold text-center">
+          I&apos;ve got just what you need. Contact me and{" "}
+          <span className="decoration-[#A1C181]/50 underline">{`let's talk`}</span>
         </h4>
         <div className="space-y-10">
           <div className="flex items-center space-x-5 justify-center">
-            <PhoneIcon className="text-[#A1C181] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+123456789</p>
-          </div>
-          <div className="flex items-center space-x-5 justify-center">
             <EnvelopeIcon className="text-[#A1C181] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">myemailid@mail.com</p>
+            <p className="text-2xl">vanathisulochana@gmail.com</p>
+          </div>
+          <div className="flex items-center space-x-5 justify-center animate-pulse">
+            {/* <PhoneIcon className="text-[#A1C181] h-7 w-7 animate-pulse" />
+            <p className="text-2xl">+123456789</p> */}
+            <SocialIcon
+              url="https://www.instagram.com/vaanoz/"
+              fgColor="#A1C181"
+              bgColor="transparent"
+            />
+            <SocialIcon
+              url="https://www.linkedin.com/in/vanathi-rajasekar/"
+              fgColor="#A1C181"
+              bgColor="transparent"
+            />
+            <SocialIcon
+              url="https://github.com/RVanathi"
+              fgColor="#A1C181"
+              bgColor="transparent"
+            />
           </div>
         </div>
         <form
@@ -66,9 +85,9 @@ function ContactMe({}: Props) {
           />
           <button
             type="submit"
-            className="bg-[#A1C181] py-5 px-10 rounded-md text-black font-bold"
+            className="bg-[#A1C181]/80 py-5 px-10 rounded-md text-black font-bold"
           >
-            Submit
+            Send Message
           </button>
         </form>
       </div>
