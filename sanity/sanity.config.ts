@@ -5,9 +5,9 @@ import {schemaTypes} from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'portfolio-build',
+  title: 'portfolio-nextjs-build',
 
-  projectId: '5238sons',
+  projectId: '436z0i7k',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],
