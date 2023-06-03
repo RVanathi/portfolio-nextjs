@@ -31,5 +31,10 @@ export default {
       title: 'linkToBuild',
       type: 'url',
     },
+    {
+      name: 'LinkToCode',
+      title: 'linkToCode',
+      type: 'url',
+    },
   ],
 }
