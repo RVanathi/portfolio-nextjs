@@ -2,11 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import ProjectItem from "./ProjectItem";
 import netflixImg from "../public/assets/netflix.jpg";
-import blogImg from "../public/assets/blog.jpg";
-import portImg from "../public/assets/portfolio.jpg";
-import dinoImg from "../public/assets/dino.jpg";
-import slackImg from "../public/assets/slack.jpg";
-import custImg from "../public/assets/cust.jpg";
 
 type Props = {};
 
@@ -33,27 +28,27 @@ function Projects({}: Props) {
           />
           <ProjectItem
             title="Blog App"
-            backgroundImg={blogImg}
+            backgroundImg={netflixImg}
             projectUrl="/blog"
           />
           <ProjectItem
             title="Portfolio"
-            backgroundImg={portImg}
+            backgroundImg={netflixImg}
             projectUrl="/portfolio"
           />
           <ProjectItem
             title="Dino Game"
-            backgroundImg={dinoImg}
+            backgroundImg={netflixImg}
             projectUrl="/dino"
           />
           <ProjectItem
             title="Slack Clone"
-            backgroundImg={slackImg}
+            backgroundImg={netflixImg}
             projectUrl="/slack"
           />
           <ProjectItem
             title="CRUD App"
-            backgroundImg={custImg}
+            backgroundImg={netflixImg}
             projectUrl="/customer"
           />
         </div>

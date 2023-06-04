@@ -29,7 +29,7 @@ function ExperienceCard({}: Props) {
           {/* Tech used */}
           <Image
             className="h-7 w-7 rounded-full"
-            src="/../public/assets/sap_abap.jpg"
+            src="/../public/assets/sap.png"
             alt=""
             height="100"
             width="150"
