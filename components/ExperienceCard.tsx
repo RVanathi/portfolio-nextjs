@@ -1,10 +1,12 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
+import { Experience } from "@/typings";
+import { urlFor } from "@/sanity";
 
-type Props = {};
+type Props = { experience: Experience };
 
-function ExperienceCard({}: Props) {
+function ExperienceCard({ experience }: Props) {
   return (
     <article className="flex flex-col rounded-lg items-center space-y-7 h-auto w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#053642] p-10 hover:opacity-100 opacity-50 cursor-pointer transition-opacity duration-200 overflow-hidden">
       {/* flex-shrink-0 */}
@@ -16,7 +18,7 @@ function ExperienceCard({}: Props) {
       >
         <Image
           className="w-24 h-24 rounded-full xl:w-[100px] xl:h-[100px] object-cover object-center"
-          src="/../public/assets/acc2.png"
+          src={urlFor(experience?.companyImage).url()}
           alt=""
           width="150"
           height="150"
@@ -27,41 +29,30 @@ function ExperienceCard({}: Props) {
         <p className="font-bold text-2xl mt-1">Accenture</p>
         <div className="flex space-x-2 my-2">
           {/* Tech used */}
-          <Image
-            className="h-7 w-7 rounded-full"
-            src="/../public/assets/sap.png"
-            alt=""
-            height="100"
-            width="150"
-          />
-          <Image
-            className="h-7 w-7 rounded-full"
-            src="/../public/assets/soap.png"
-            alt=""
-            height="100"
-            width="150"
-          />
+          {experience.technologies.map((technology) => (
+            <Image
+              key={technology._id}
+              className="h-7 w-7 rounded-full"
+              src={urlFor(technology.image).url()}
+              alt=""
+              height="100"
+              width="150"
+            />
+          ))}
         </div>
         <p className="uppercase py-5 text-[#1f7b70] ">
-          Started work... - Ended...
+          {/* {new Date(experience.dateStarted).toDateString()} -{" "}
+          {experience.isCurrentlyWorkingHere
+            ? "Present"
+            : new Date(experience.dateEnded).toDateString()} */}
+          {"Jun 2016 - May 2018"}
         </p>
 
-        <ul className="list-disc space-y-4 ml-5 text-lg ">
+        <ul className="list-disc space-y-4 ml-5 text-lg max-h-96 pr-5 overflow-y-scroll scrollbar-thin scrollbar-track-[#053642] scrollbar-thumb-[#A1C181]/80">
           {/* h-[300px] overflow-y-scroll scrollbar scrollbar-track-[#053642] scrollbar-thumb-[#A1C181]/80 */}
-          <li>
-            Summary points. Lorem ipsum dolor sit amet consectetur adipisicing
-            elit.
-          </li>
-          <li>
-            Summary points. Suscipit maxime veniam velit culpa dignissimos
-            eveniet quod inventore, aspernatur assumenda architecto libero
-            numquam.
-          </li>
-          <li>
-            Summary points. Molestias accusantium consequatur excepturi
-            reprehenderit? Quidem, eum dicta.
-          </li>
-          <li>Summary points.Summary pointsSummary pointsSummary points</li>
+          {experience.points.map((point, i) => (
+            <li key={i}>{point}</li>
+          ))}
         </ul>
       </div>
     </article>

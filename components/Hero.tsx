@@ -4,12 +4,14 @@ import BackgroundRings from "./BackgroundRings";
 import Image from "next/image";
 import Link from "next/link";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
+import { PageInfo } from "@/typings";
 
 type Props = {};
 
 function Hero({}: Props) {
   const [text, count] = useTypewriter({
-    words: ["Hi, I'm Vanathi Rajasekar"],
+    words: [`Hi, I'm Vanathi Rajasekar`],
+    // words: [`Hi, I'm ${pageInfo.name}`],
     loop: true,
     delaySpeed: 2000,
   });
@@ -27,6 +29,7 @@ function Hero({}: Props) {
       <div className="z-20">
         <h2 className="text-sm uppercase text-[#1f7b70] pb-2 tracking-[15px] sm:p-2">
           Software Engineer
+          {/* {`${pageInfo.role}`} */}
         </h2>
         <h1 className="text-5xl lg:text-6xl font-semibold px-10">
           <span className="mr-3">{text}</span>
@@ -46,9 +49,6 @@ function Hero({}: Props) {
             <button className="heroButton">Projects</button>
           </Link>
         </div>
-        {/* <div className="sm:hidden pt-5">
-          <button className="heroButton font-semibold">Menu</button>
-        </div> */}
       </div>
     </div>
   );

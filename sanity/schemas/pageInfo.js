@@ -1,6 +1,6 @@
 export default {
   name: 'pageInfo',
-  title: 'PageInfo',
+  title: 'Page Info',
   type: 'document',
   fields: [
     {
@@ -16,30 +16,20 @@ export default {
     },
     {
       name: 'backgroundInformation',
-      title: 'BackgroundInformation',
-      type: 'string',
+      title: 'Background Info',
+      type: 'text',
     },
     {
       name: 'profilePic',
-      title: 'ProfilePic',
+      title: 'Profile Pic',
       type: 'image',
       options: {
         hotspot: true,
       },
     },
     {
-      name: 'phoneNumber',
-      title: 'PhoneNumber',
-      type: 'string',
-    },
-    {
       name: 'email',
       title: 'Email',
-      type: 'string',
-    },
-    {
-      name: 'address',
-      title: 'Address',
       type: 'string',
     },
     {

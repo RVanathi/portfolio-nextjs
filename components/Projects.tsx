@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ProjectItem from "./ProjectItem";
 import netflixImg from "../public/assets/netflix.jpg";
+import { Project } from "@/typings";
+import project from "@/sanity/schemas/project";
+// import Project from "./Project";
 
-type Props = {};
+type Props = {
+  projects: Project[];
+  toggle: () => void;
+};
 
-function Projects({}: Props) {
+function Projects({ projects, toggle }: Props) {
+  // const [isDisplayed, setIsDisplayed] = useState(false);
+
+  // const toggleDisplay = () => {
+  //   setIsDisplayed(!isDisplayed);
+  // };
+
   return (
     <div className="w-full">
       <motion.div
@@ -21,7 +33,11 @@ function Projects({}: Props) {
           What I&apos;ve Built
         </h3>
         <div className="z-40 grid grid-cols-2 md:grid-cols-3 gap-8">
-          <ProjectItem
+          {projects?.map((project) => (
+            <ProjectItem key={project._id} project={project} toggle={toggle} />
+          ))}
+
+          {/* <ProjectItem
             title="Netflix Clone"
             backgroundImg={netflixImg}
             projectUrl="/netflix"
@@ -50,9 +66,10 @@ function Projects({}: Props) {
             title="CRUD App"
             backgroundImg={netflixImg}
             projectUrl="/customer"
-          />
+          /> */}
         </div>
       </motion.div>
+      {/* <Project project={project} /> */}
     </div>
   );
 }

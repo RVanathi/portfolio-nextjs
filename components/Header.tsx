@@ -3,9 +3,11 @@ import { SocialIcon } from "react-social-icons";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
-type Props = {};
+import { Social } from "@/typings";
 
-function Header({}: Props) {
+type Props = { socials: Social[] };
+
+function Header({ socials }: Props) {
   return (
     <header className="sticky top-0 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center p-5">
       <motion.div
@@ -25,28 +27,14 @@ function Header({}: Props) {
         className="flex items-center justify-between"
       >
         {/*Social Icons */}
-        {/* <Image
-          className="pt-5"
-          src="/../public/assets/new.png"
-          alt="/"
-          width="100"
-          height="100"
-        /> */}
-        <SocialIcon
-          url="https://www.instagram.com/vaanoz/"
-          fgColor="#1f7b70"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          url="https://www.linkedin.com/in/vanathi-rajasekar/"
-          fgColor="#1f7b70"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          url="https://github.com/RVanathi"
-          fgColor="#1f7b70"
-          bgColor="transparent"
-        />
+        {socials.map((social) => (
+          <SocialIcon
+            key={social._id}
+            url={social.url}
+            fgColor="#1f7b70"
+            bgColor="transparent"
+          />
+        ))}
       </motion.div>
       <Link href="/#contact" legacyBehavior>
         <motion.div
@@ -67,7 +55,7 @@ function Header({}: Props) {
             fgColor="#1f7b70"
             bgColor="transparent"
           />
-          <p className="uppercase hidden md:inline-flex text-sm text-[#190933]-400">
+          <p className="cursor-pointer uppercase hidden md:inline-flex text-sm text-[#190933]-400">
             Get In Touch
           </p>
         </motion.div>

@@ -4,9 +4,25 @@ export default {
   type: 'document',
   fields: [
     {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+        isUnique: (value, context) => context.defaultIsUnique(value, context),
+      },
+      validation: (rule) => rule.required(),
+    },
+    {
       name: 'title',
       title: 'Title',
       description: 'Title of the project',
+      type: 'string',
+    },
+    {
+      name: 'tech',
+      title: 'Tech',
       type: 'string',
     },
     {
@@ -21,20 +37,21 @@ export default {
       type: 'text',
     },
     {
+      name: 'linkToBuild',
+      title: 'LinkToBuild',
+      type: 'url',
+    },
+    {
+      name: 'linkToCode',
+      title: 'LinkToCode',
+      type: 'url',
+    },
+    {
       name: 'technologies',
       title: 'Technologies',
       type: 'array',
       of: [{type: 'reference', to: {type: 'skill'}}],
     },
-    {
-      name: 'LinkToBuild',
-      title: 'linkToBuild',
-      type: 'url',
-    },
-    {
-      name: 'LinkToCode',
-      title: 'linkToCode',
-      type: 'url',
-    },
+    
   ],
 }

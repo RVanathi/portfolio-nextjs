@@ -2,6 +2,7 @@ import React from "react";
 import { SocialIcon } from "react-social-icons";
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { Social } from "@/typings";
 type Inputs = {
   name: string;
   email: string;
@@ -9,9 +10,9 @@ type Inputs = {
   message: string;
 };
 
-type Props = {};
+type Props = { socials: Social[] };
 
-function ContactMe({}: Props) {
+function ContactMe({ socials }: Props) {
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     window.location.href = `mailto:myemailid@mail?subject=${formData.message}`;
@@ -37,7 +38,15 @@ function ContactMe({}: Props) {
           <div className="flex items-center space-x-5 justify-center animate-pulse">
             {/* <PhoneIcon className="text-[#A1C181] h-7 w-7 animate-pulse" />
             <p className="text-2xl">+123456789</p> */}
-            <SocialIcon
+            {socials.map((social) => (
+              <SocialIcon
+                key={social._id}
+                url={social.url}
+                fgColor="#A1C181"
+                bgColor="transparent"
+              />
+            ))}
+            {/* <SocialIcon
               url="https://www.instagram.com/vaanoz/"
               fgColor="#A1C181"
               bgColor="transparent"
@@ -51,7 +60,7 @@ function ContactMe({}: Props) {
               url="https://github.com/RVanathi"
               fgColor="#A1C181"
               bgColor="transparent"
-            />
+            /> */}
           </div>
         </div>
         <form

@@ -3,22 +3,27 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { StarIcon, ChevronDoubleLeftIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import { Project, Technology } from "@/typings";
+import { urlFor } from "@/sanity";
 
-type Props = {};
+type Props = {
+  project: Project;
+  toggle: () => void;
+};
 
-const blog = (props: Props) => {
+const Project = ({ project, toggle }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       transition={{ duration: 1.5 }}
       whileInView={{ opacity: 1 }}
-      className="bg-[#002f3b] text-white h-screen relative flex flex-col text-left md:flew-row max-w-full justify-evenly mx-auto items-center z-0"
+      className="bg-[#002f3b] text-white h-screen relative flex flex-col overflow-hidden text-left md:flew-row max-w-full justify-evenly mx-auto items-center z-0"
     >
       <h3 className="absolute top-24 uppercase tracking-[20px] text-[#1f7b70] text-2xl">
-        Blog App
+        {project?.title}
       </h3>
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-[#053642] scrollbar-thumb-[#A1C181]/80">
-        <div className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
+      <div className="w-screen relative flex overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-[#053642] scrollbar-thumb-[#A1C181]/80">
+        <div className="flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44">
           <motion.div
             initial={{ y: -300, opacity: 0 }}
             transition={{ duration: 1.2 }}
@@ -26,7 +31,7 @@ const blog = (props: Props) => {
             viewport={{ once: true }}
           >
             <Image
-              src="/../public/assets/blog.jpg"
+              src={urlFor(project?.image).url()}
               alt=""
               width="300"
               height="200"
@@ -39,17 +44,24 @@ const blog = (props: Props) => {
             <div className="grid md:grid-cols-5 gap-8">
               <div className="col-span-4">
                 <p className="text-lg text-center md:text-left ">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Perspiciatis velit autem iste aut nemo placeat debitis, qui
-                  iusto cum magnam ducimus rerum maiores at facere, tempora
-                  deleniti labore pariatur iure. Lorem ipsum dolor sit amet
-                  consectetur, adipisicing elit. Quos dolore ipsa molestias
-                  veniam delectus facere commodi minus odit possimus, unde omnis
-                  quis vero tempore quasi ut voluptas perferendis alias aut.
+                  {project?.summary}
                 </p>
-                <button className="projectButton mr-5">Demo</button>
-                <button className="projectButton">Code</button>
-                <Link href="/#projects" className="flex pt-4">
+                <a
+                  href={`${project?.linkToBuild}`}
+                  //   href="https://vr-crud-app.netlify.app/"
+                  target={"_blank"}
+                  rel={"noreferrer"}
+                >
+                  <button className="projectButton mr-5">Demo</button>
+                </a>
+                <a
+                  href={`${project?.linkToCode}`}
+                  target={"_blank"}
+                  rel={"noreferrer"}
+                >
+                  <button className="projectButton">Code</button>
+                </a>
+                <Link href="/#projects" className="flex pt-4" onClick={toggle}>
                   <ChevronDoubleLeftIcon className="pr-1 align-start text-[#A1C181] h-7 w-7 animate-pulse" />
                   Back
                 </Link>
@@ -58,18 +70,15 @@ const blog = (props: Props) => {
                 <div className="p-2">
                   <p className="text-center font-semibold pb-2">Technologies</p>
                   <div className="grid grid-cols-2 md:grid-cols-1">
-                    <p className="py-2 flex items-center">
-                      <StarIcon className="text-[#A1C181] h-4 w-4 pr-1" />
-                      React
-                    </p>
-                    <p className="py-2 flex items-center">
-                      <StarIcon className="text-[#A1C181] h-4 w-4 pr-1" />
-                      Tailwindcss
-                    </p>
-                    <p className="py-2 flex items-center">
-                      <StarIcon className="text-[#A1C181] h-4 w-4 pr-1" />
-                      Hygraph
-                    </p>
+                    {project?.technologies?.map((technology) => (
+                      <p
+                        key={technology._id}
+                        className="py-2 flex items-center"
+                      >
+                        <StarIcon className="text-[#A1C181] h-4 w-4 pr-1" />
+                        {technology?.title}
+                      </p>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -81,5 +90,4 @@ const blog = (props: Props) => {
     </motion.div>
   );
 };
-
-export default blog;
+export default Project;
