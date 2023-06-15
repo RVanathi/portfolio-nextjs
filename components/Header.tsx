@@ -1,13 +1,20 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { SocialIcon } from "react-social-icons";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { Social } from "@/typings";
+import { Social } from "@/types/Social";
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
 
 type Props = { socials: Social[] };
 
 function Header({ socials }: Props) {
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+  if (!hydrated) {
+    return null;
+  }
   return (
     <header className="sticky top-0 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center p-5">
       <motion.div
@@ -33,10 +40,12 @@ function Header({ socials }: Props) {
             url={social.url}
             fgColor="#1f7b70"
             bgColor="transparent"
+            target="_blank"
+            rel="noreferrer"
           />
         ))}
       </motion.div>
-      <Link href="/#contact" legacyBehavior>
+      <a href="#contact">
         <motion.div
           initial={{ x: 500, opacity: 0, scale: 0.5 }}
           animate={{
@@ -49,17 +58,19 @@ function Header({ socials }: Props) {
           }}
           className="flex flex-row items-center"
         >
-          <SocialIcon
-            className="cursor-pointer"
-            network="email"
-            fgColor="#1f7b70"
-            bgColor="transparent"
-          />
+          <EnvelopeIcon className="flex text-[#1f7b70] h-10 w-10 font-semibold pr-2" />
+          {/* <SocialIcon
+          href="/#contact"
+          className="cursor-pointer"
+          network="email"
+          fgColor="#1f7b70"
+          bgColor="transparent"
+        /> */}
           <p className="cursor-pointer uppercase hidden md:inline-flex text-sm text-[#190933]-400">
             Get In Touch
           </p>
         </motion.div>
-      </Link>
+      </a>
     </header>
   );
 }

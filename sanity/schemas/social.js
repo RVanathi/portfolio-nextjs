@@ -1,18 +1,18 @@
-export default {
-  name: 'social',
-  title: 'Social',
-  type: 'document',
+const social = {
+  name: "social",
+  title: "Socials",
+  type: "document",
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      description: 'Platform for social media',
-      type: 'string',
+      name: "title",
+      title: "Title",
+      type: "string",
     },
     {
-      name: 'url',
-      title: 'Url',
-      type: 'url',
+      name: "url",
+      title: "Url",
+      type: "url",
     },
   ],
-}
+};
+export default social;
