@@ -99,3 +99,4 @@ export default async function Project({ params }: Props) {
     </div>
   );
 }
+export const revalidate = 10;
